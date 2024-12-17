@@ -36,8 +36,8 @@ typedef struct {
 /********************************
  * Global Variables
  ********************************/
-const char *AP_SSID = "RTL8720dn-Deauther";
-const char *AP_PASS = "0123456789";
+const char *AP_SSID = "Deauther_5G";
+const char *AP_PASS = "Deauther2024";
 int current_channel = 1;
 uint8_t deauth_bssid[6];
 uint16_t deauth_reason = 2;
@@ -74,15 +74,15 @@ rtw_result_t handleScanResult(rtw_scan_handler_result_t *scan_result) {
  * WiFi Network Scanner
  ********************************/
 bool scanWiFiNetworks() {
-    DEBUG_SER_PRINT("Scanning WiFi networks (5s)...\n");
+    DEBUG_SER_PRINT("Scanning WiFi networks...\n");
     scanResults.clear();
 
     if (wifi_scan_networks(handleScanResult, NULL) == RTW_SUCCESS) {
         delay(5000); // Wait for scan to complete
-        DEBUG_SER_PRINT("Scan complete!\n");
+        DEBUG_SER_PRINT("Scan Complete!\n");
         return true;
     } else {
-        DEBUG_SER_PRINT("Scan failed!\n");
+        DEBUG_SER_PRINT("Scan Failed!\n");
         return false;
     }
 }
